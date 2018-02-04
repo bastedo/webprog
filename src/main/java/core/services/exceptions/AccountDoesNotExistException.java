@@ -14,5 +14,6 @@ public class AccountDoesNotExistException extends RuntimeException {
     }
 
     public AccountDoesNotExistException() {
+        super();
     }
 }

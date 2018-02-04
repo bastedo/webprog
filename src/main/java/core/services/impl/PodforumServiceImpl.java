@@ -45,8 +45,4 @@ public class PodforumServiceImpl implements PodforumService {
         return podforumRepo.createPodforum(data);
     }
 
-    @Override
-    public Account findAccount(long id) {
-        return new Account();
-    }
 }

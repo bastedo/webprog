@@ -3,8 +3,10 @@ package rest.mvc;
 
 import core.entites.Account;
 import core.entites.Podforum;
+import core.entites.Pravilo;
 import core.services.AccountService;
 import core.services.PodforumService;
+import core.services.PraviloService;
 import core.services.exceptions.PodforumExistsException;
 import core.services.util.PodforumList;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,19 +26,23 @@ import rest.resources.list.PodforumListResource;
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 @Controller
 @RequestMapping("/rest/podforum")
 public class PodforumController {
 
+    private PraviloService praviloService ;
     private  AccountService accountService ;
     private PodforumService podforumService;
     @Autowired
 
 
-    public PodforumController(PodforumService podforumService, AccountService accountService ) {
+    public PodforumController(PodforumService podforumService, AccountService accountService, PraviloService praviloService ) {
         this.podforumService = podforumService;
         this.accountService = accountService ;
+        this.praviloService = praviloService ;
 
     }
 
@@ -86,10 +92,11 @@ public class PodforumController {
     }
 
 
-    @RequestMapping( value="/createp",
-            method = RequestMethod.GET)
+    @RequestMapping( value="/createp", method = RequestMethod.GET)
     public ResponseEntity<PodforumResource> createPodforumStatic() {
         Account account = accountService.findAccount(1L);
+        Pravilo pravilo1 = praviloService.findPravilo(1L);
+        Pravilo pravilo2 = praviloService.findPravilo(2L);
         if(account != null)
         {
             Podforum tempPodforum = new Podforum();
@@ -97,6 +104,10 @@ public class PodforumController {
             tempPodforum.setOpis("Ovo je opis");
             tempPodforum.setOdgovorniModerator(account);
             tempPodforum.setNaziv("Ovo je naziv");
+            Set<Pravilo> spisakPravilas = new HashSet<>();
+            spisakPravilas.add(pravilo1);
+            spisakPravilas.add(pravilo2);
+            tempPodforum.setSpisakPravilas(spisakPravilas);
 
             Podforum createdPodforum = podforumService.createPodforum(tempPodforum);
             PodforumResource res = new PodforumResourceAsm().toResource(createdPodforum);

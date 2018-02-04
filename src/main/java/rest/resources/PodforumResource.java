@@ -2,9 +2,12 @@ package rest.resources;
 
 import core.entites.Account;
 import core.entites.Podforum;
+import core.entites.Pravilo;
 import org.springframework.hateoas.ResourceSupport;
 
 import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 
 public class PodforumResource extends ResourceSupport {
@@ -20,6 +23,17 @@ public class PodforumResource extends ResourceSupport {
     private Account odgovorniModerator;
 
     private Account autor ;
+
+    private Set<Pravilo> spisakPravilas = new HashSet<>();
+
+
+    public Set<Pravilo> getSpisakPravilas() {
+        return spisakPravilas;
+    }
+
+    public void setSpisakPravilas(Set<Pravilo> spisakPravilas) {
+        this.spisakPravilas.addAll(spisakPravilas);
+    }
 
     public String getNaziv() {
         return naziv;
@@ -75,6 +89,7 @@ public class PodforumResource extends ResourceSupport {
         podforum.setNaziv(naziv);
         podforum.setIkonicaContentType(ikonicaContentType);
         podforum.setAutor(autor);
+        podforum.setSpisakPravilas(spisakPravilas);
         return podforum ;
     }
 

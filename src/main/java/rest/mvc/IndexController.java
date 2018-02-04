@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 
-@ContextConfiguration("classpath:spring/business-config.xml")
 @RequestMapping("/home")
 public class IndexController {
 

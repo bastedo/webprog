@@ -23,6 +23,7 @@ public class PodforumResourceAsm extends ResourceAssemblerSupport<Podforum, Podf
         res.setOdgovorniModerator(podforum.getOdgovorniModerator());
         res.setIkonicaContentType(podforum.getIkonicaContentType());
         res.setAutor(podforum.getAutor());
+        res.setSpisakPravilas(podforum.getSpisakPravilas());
         Link link = linkTo(methodOn(PodforumController.class).getPodforum(podforum.getId())).withSelfRel();
         res.add(link.withSelfRel());
         return res;

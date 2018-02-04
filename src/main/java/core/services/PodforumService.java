@@ -12,5 +12,5 @@ public interface PodforumService  {
     public Podforum findPodforumByName(String naziv);
     public Podforum createPodforum(Podforum data);
 
-    public Account findAccount(long id);
+
 }

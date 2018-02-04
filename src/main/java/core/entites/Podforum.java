@@ -3,6 +3,8 @@ package core.entites;
 
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "podforum")
@@ -33,6 +35,10 @@ public class Podforum {
 
     @ManyToOne
     private Account autor ;
+
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "podforum")
+    //@JsonIgnore
+    private Set<Pravilo> spisakPravilas = new HashSet<>();
 
     public static long getSerialVersionUID() {
         return serialVersionUID;
@@ -92,5 +98,13 @@ public class Podforum {
 
     public void setAutor(Account autor) {
         this.autor = autor;
+    }
+
+    public Set<Pravilo> getSpisakPravilas() {
+        return spisakPravilas;
+    }
+
+    public void setSpisakPravilas(Set<Pravilo> spisakPravilas) {
+        this.spisakPravilas = spisakPravilas;
     }
 }
