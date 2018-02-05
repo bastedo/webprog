@@ -17,7 +17,7 @@ public class PorukaList {
         return poruka;
     }
 
-    public void setPorukas(List<Poruka> accounts) {
-        this.poruka = accounts;
+    public void setPorukas(List<Poruka> porukas) {
+        this.poruka = porukas;
     }
 }

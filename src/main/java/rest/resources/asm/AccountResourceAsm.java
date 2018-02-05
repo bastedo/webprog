@@ -29,6 +29,7 @@ public class AccountResourceAsm extends ResourceAssemblerSupport<Account, Accoun
         res.setLozinka(account.getLozinka());
         res.setPrezime(account.getPrezime());
         res.setUloga(account.getUloga());
+        res.setEmail(account.getEmail());
         Link link = linkTo(methodOn(AccountController.class).getAccount(account.getId())).withSelfRel();
         res.add(link.withSelfRel());
         return res;

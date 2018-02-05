@@ -84,6 +84,7 @@ public class AccountController {
                     tempAccount.setIme("ime" + i);
                     tempAccount.setPrezime("prezime" + i);
                     tempAccount.setDatumRegistracije(LocalDate.now());
+                    tempAccount.setEmail("email " + i);
                     Account createdAccount = accountService.createAccount(tempAccount);
                 }
                 Account tempAccount = new Account();
@@ -92,6 +93,7 @@ public class AccountController {
                 tempAccount.setIme("ime6");
                 tempAccount.setPrezime("prezime6");
                 tempAccount.setDatumRegistracije(LocalDate.now());
+                tempAccount.setEmail("email");
                 Account createdAccount = accountService.createAccount(tempAccount);
                 AccountResource res = new AccountResourceAsm().toResource(createdAccount);
                 HttpHeaders headers = new HttpHeaders();

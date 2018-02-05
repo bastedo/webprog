@@ -4,10 +4,13 @@ package core.entites;
  */
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import core.enumeration.Uloga;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "account")
@@ -31,6 +34,23 @@ public class Account {
 
     @Column(name = "prezime", nullable = false)
     private String prezime;
+
+    @Column(name = "email", nullable = false)
+    private String email ;
+
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JsonIgnore
+    private Set<Podforum> spisakPracenihPodforuma = new HashSet<>();
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JsonIgnore
+    private Set<Tema> spisakSnimljenihTema = new HashSet<>();
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JsonIgnore
+    private Set<Komentar> spisakSnimljenihKomentara = new HashSet<>();
+
 
     @Enumerated(EnumType.STRING)
     @Column(name = "uloga")
@@ -95,5 +115,35 @@ public class Account {
         this.datumRegistracije = datumRegistracije;
     }
 
+    public String getEmail() {
+        return email;
+    }
 
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public Set<Podforum> getSpisakPracenihPodforuma() {
+        return spisakPracenihPodforuma;
+    }
+
+    public void setSpisakPracenihPodforuma(Set<Podforum> spisakPracenihPodforuma) {
+        this.spisakPracenihPodforuma = spisakPracenihPodforuma;
+    }
+
+    public Set<Tema> getSpisakSnimljenihTema() {
+        return spisakSnimljenihTema;
+    }
+
+    public void setSpisakSnimljenihTema(Set<Tema> spisakSnimljenihTema) {
+        this.spisakSnimljenihTema = spisakSnimljenihTema;
+    }
+
+    public Set<Komentar> getSpisakSnimljenihKomentara() {
+        return spisakSnimljenihKomentara;
+    }
+
+    public void setSpisakSnimljenihKomentara(Set<Komentar> spisakSnimljenihKomentara) {
+        this.spisakSnimljenihKomentara = spisakSnimljenihKomentara;
+    }
 }

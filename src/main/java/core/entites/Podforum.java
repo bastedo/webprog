@@ -36,7 +36,7 @@ public class Podforum {
     @ManyToOne
     private Account autor ;
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "podforum")
+    @ManyToMany(fetch = FetchType.EAGER)
     //@JsonIgnore
     private Set<Pravilo> spisakPravilas = new HashSet<>();
 

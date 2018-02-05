@@ -1,0 +1,8 @@
+0:0:0:0:0:0:0:1 - - [05/Feb/2018:11:03:46 +0100] "GET /web-prog/rest/accounts/create HTTP/1.1" 500 11823 http-bio-8080-exec-1 12074
+0:0:0:0:0:0:0:1 - - [05/Feb/2018:11:03:47 +0100] "GET /favicon.ico HTTP/1.1" 404 - http-bio-8080-exec-3 0
+0:0:0:0:0:0:0:1 - - [05/Feb/2018:11:04:02 +0100] "GET /web-prog/rest/accounts HTTP/1.1" 200 37 http-bio-8080-exec-4 223
+0:0:0:0:0:0:0:1 - - [05/Feb/2018:11:07:44 +0100] "GET /web-prog/rest/accounts/create HTTP/1.1" 201 462 http-bio-8080-exec-1 9399
+0:0:0:0:0:0:0:1 - - [05/Feb/2018:11:07:53 +0100] "GET /web-prog/rest/pravilos HTTP/1.1" 200 36 http-bio-8080-exec-3 56
+0:0:0:0:0:0:0:1 - - [05/Feb/2018:11:07:58 +0100] "GET /web-prog/rest/pravilos/create HTTP/1.1" 201 241 http-bio-8080-exec-5 61
+0:0:0:0:0:0:0:1 - - [05/Feb/2018:11:08:04 +0100] "GET /web-prog/rest/podforum HTTP/1.1" 200 37 http-bio-8080-exec-6 40
+0:0:0:0:0:0:0:1 - - [05/Feb/2018:11:08:09 +0100] "GET /web-prog/rest/podforum/createp HTTP/1.1" 200 1108 http-bio-8080-exec-8 336

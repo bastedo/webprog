@@ -1,8 +1,11 @@
 package rest.mvc;
 
 
+import core.entites.Account;
+import core.entites.Podforum;
 import core.entites.Tema;
 import core.services.AccountService;
+import core.services.PodforumService;
 import core.services.TemaService;
 import core.services.util.TemaList;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +26,7 @@ public class TemaController {
 
     private TemaService temaService;
     private AccountService accountService;
+    private PodforumService podforumService;
 
     @Autowired
     public TemaController(TemaService temaService, AccountService accountService) {
@@ -49,4 +53,5 @@ public class TemaController {
             return new ResponseEntity<TemaResource>(HttpStatus.NOT_FOUND);
         }
     }
+
 }

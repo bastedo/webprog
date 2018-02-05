@@ -2,11 +2,16 @@ package rest.resources;
 
 
 import core.entites.Account;
+import core.entites.Komentar;
+import core.entites.Podforum;
+import core.entites.Tema;
 import core.enumeration.Uloga;
 import org.springframework.hateoas.ResourceSupport;
 
 
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
 
 public class AccountResource extends ResourceSupport {
 
@@ -17,6 +22,8 @@ public class AccountResource extends ResourceSupport {
     private String prezime;
     private Uloga uloga;
     private LocalDate datumRegistracije;
+    private String email ;
+
 
 
     public String getKorisnickoIme() {
@@ -66,6 +73,15 @@ public class AccountResource extends ResourceSupport {
     public void setDatumRegistracije(LocalDate datumRegistracije) {
         this.datumRegistracije = datumRegistracije;
     }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     public Account toAccount() {
         Account account = new Account();
         account.setIme(ime);
@@ -74,6 +90,7 @@ public class AccountResource extends ResourceSupport {
         account.setLozinka(lozinka);
         account.setPrezime(prezime);
         account.setUloga(uloga);
+        account.setEmail(email);
         return account;
     }
 

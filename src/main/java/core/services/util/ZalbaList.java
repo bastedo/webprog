@@ -16,7 +16,7 @@ public class ZalbaList {
         return zalba;
     }
 
-    public void setZalbas(List<Zalba> accounts) {
-        this.zalba = accounts;
+    public void setZalbas(List<Zalba> zalba) {
+        this.zalba = zalba;
     }
 }

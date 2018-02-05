@@ -1,8 +1,11 @@
 package rest.mvc;
 
+import core.entites.Account;
 import core.entites.Komentar;
+import core.entites.Podforum;
 import core.services.AccountService;
 import core.services.KomentarService;
+import core.services.PodforumService;
 import core.services.util.KomentarList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -22,6 +25,7 @@ public class KomentarController {
 
     private KomentarService komentarService;
     private AccountService accountService;
+    private PodforumService podforumService;
 
     @Autowired
     public KomentarController(KomentarService komentarService, AccountService accountService) {
@@ -48,4 +52,6 @@ public class KomentarController {
             return new ResponseEntity<KomentarResource>(HttpStatus.NOT_FOUND);
         }
     }
+
+
 }

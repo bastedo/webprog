@@ -26,6 +26,9 @@ public class Komentar {
     @Column(name = "komentar_izmenjen")
     private Boolean komentarIzmenjen;
 
+    @Column(name = "komentar_lizbrisan")
+    private Boolean komentarLIzbrisan;
+
     @ManyToOne
     private Account korisnik;
 

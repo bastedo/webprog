@@ -1,6 +1,7 @@
 package core.entites;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "pravilo")
@@ -18,8 +19,6 @@ public class Pravilo {
     @Column(name = "sadrzaj_pravila")
     private String sadrzajPravila;
 
-    @ManyToOne
-    private Podforum podforum;
 
     public static long getSerialVersionUID() {
         return serialVersionUID;

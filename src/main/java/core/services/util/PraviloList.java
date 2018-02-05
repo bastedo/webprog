@@ -17,7 +17,7 @@ public class PraviloList {
         return pravilo;
     }
 
-    public void setPravilos(List<Pravilo> accounts) {
-        this.pravilo = accounts;
+    public void setPravilos(List<Pravilo> pravilos) {
+        this.pravilo = pravilos;
     }
 }
